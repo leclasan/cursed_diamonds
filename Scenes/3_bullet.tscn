@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dixd1vt2ukbl3"]
+
+[ext_resource type="Script" uid="uid://cadesyim0rc6i" path="res://Scripts/3_bullet.gd" id="1_4jbms"]
+[ext_resource type="Texture2D" uid="uid://bk6uthr7j6x2l" path="res://Assets/weapons/weapon_spritesheet.png" id="2_jwsua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2sdp"]
+size = Vector2(18, 9)
+
+[node name="3Bullet" type="Area2D" groups=["Weapons"]]
+script = ExtResource("1_4jbms")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.86102e-05, -0.384626)
+rotation = 1.5708
+scale = Vector2(3, 3)
+texture = ExtResource("2_jwsua")
+region_enabled = true
+region_rect = Rect2(178, 2, 3, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.499952)
+shape = SubResource("RectangleShape2D_h2sdp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

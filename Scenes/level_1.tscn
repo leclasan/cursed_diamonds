@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://rf6swqh2hpx0"]
+
+[ext_resource type="PackedScene" uid="uid://cpuuefb3kul8h" path="res://Scenes/player.tscn" id="1_vk57k"]
+[ext_resource type="Script" uid="uid://c14piwd5ufx1y" path="res://Scripts/level.gd" id="1_xfk5q"]
+[ext_resource type="PackedScene" uid="uid://l11uek7a7fog" path="res://Scenes/tile_map.tscn" id="2_8ffim"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_xfk5q")
+
+[node name="TileMap" parent="." instance=ExtResource("2_8ffim")]
+position = Vector2(518, 563)
+layer_0/tile_data = PackedInt32Array(131060, 524289, 2, 131061, 589825, 2, 131062, 589825, 2, 131063, 589825, 2, 131064, 589825, 2, 131065, 589825, 2, 131066, 589825, 2, 131067, 655361, 2, 131071, 524289, 2, 65536, 589825, 2, 65537, 589825, 2, 65538, 589825, 2, 65539, 655361, 2, 65544, 589825, 2, 65545, 589825, 2, 65546, 589825, 2, 65547, 589825, 2, 65548, 589825, 2, 65549, 589825, 2, 65550, 655361, 2, 65524, 458753, 2, -12, 458753, 2, -65548, 458753, 2, 14, 458753, 2, -65522, 458753, 2, -131058, 458753, 2, -327666, 458753, 2, -393202, 458753, 2, -458738, 458753, 2, -524274, 458753, 2, -262156, 458753, 2, -327692, 458753, 2, -393228, 458753, 2, -458764, 458753, 2, -655372, 458753, 2, -720908, 458753, 2, -786444, 524289, 2, -786418, 458753, 2, -851954, 655361, 2, -720882, 458753, 2, -786443, 589825, 2, -786442, 589825, 2, -786441, 589825, 2, -786440, 589825, 2, -786439, 589825, 2, -786438, 589825, 2, -786437, 655361, 2, -851955, 589825, 2, -851956, 589825, 2, -851957, 589825, 2, -851958, 589825, 2, -851959, 589825, 2, -851960, 589825, 2, -851961, 524289, 2, -786433, 524289, 2, -851968, 589825, 2, -851967, 589825, 2, -851966, 589825, 2, -851965, 655361, 2, 65543, 524289, 2, 12, 589825, 2, -65523, 589825, 2, 65526, 589825, 2, -11, 589825, 2, 65525, 589825, 2, 13, 589825, 2, -65524, 524289, 2, 11, 524289, 2, -10, 655361, 2, 65527, 655361, 2, -589830, 589825, 2, -589829, 589825, 2, -589828, 589825, 2, -589827, 589825, 2, -589826, 589825, 2, -589825, 655361, 2, -589831, 524289, 2, -655357, 524289, 2, -655356, 589825, 2, -655355, 589825, 2, -655354, 589825, 2, -655353, 589825, 2, -655352, 589825, 2, -655351, 655361, 2, -458754, 524289, 2, -524284, 655361, 2, -458753, 589825, 2, -524288, 589825, 2, -524287, 720897, 3, -524286, 589825, 2, -524285, 589825, 2, -327691, 589825, 2, -327690, 589825, 2, -327689, 589825, 2, -393203, 589825, 2, -393204, 589825, 2, -393205, 589825, 2, -327688, 655361, 2, -393206, 524289, 2, -720893, 458753, 2, -655361, 458753, 2, -458748, 524289, 2, -393218, 655361, 2, -393221, 524289, 2, -458745, 655361, 2, -458747, 589825, 2, -458746, 589825, 2, -393219, 589825, 2, -393220, 589825, 2, 1, 720897, 3, -65535, 720897, 3, -131071, 720897, 3, -196607, 720897, 3, -262143, 720897, 3, -327679, 720897, 3, -393215, 720897, 3, -458751, 720897, 3, -589823, 720897, 2)
+
+[node name="Player" parent="." instance=ExtResource("1_vk57k")]
+position = Vector2(518, 581)
+
+[node name="EnemySpawn" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="EnemySpawn"]
+position = Vector2(411, 17)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawn"]
+position = Vector2(756, 17)
+
+[node name="DiamondSpawn" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="DiamondSpawn"]
+position = Vector2(109, 269)
+
+[node name="Marker2D3" type="Marker2D" parent="DiamondSpawn"]
+position = Vector2(585, 142)
+
+[node name="Marker2D2" type="Marker2D" parent="DiamondSpawn"]
+position = Vector2(1066, 269)
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+z_index = 30
+offset_left = 1003.0
+offset_top = 46.0
+offset_right = 1122.0
+offset_bottom = 82.0
+size_flags_horizontal = 4
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

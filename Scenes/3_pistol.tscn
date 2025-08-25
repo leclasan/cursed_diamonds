@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk81iut1xrtb6"]
+
+[ext_resource type="Script" uid="uid://ci5xdiuxouco2" path="res://Scripts/3_pistol.gd" id="1_k440d"]
+[ext_resource type="Texture2D" uid="uid://bk6uthr7j6x2l" path="res://Assets/weapons/weapon_spritesheet.png" id="2_ylcrd"]
+
+[node name="3Pistol" type="Node2D"]
+script = ExtResource("1_k440d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, 2)
+texture = ExtResource("2_ylcrd")
+region_enabled = true
+region_rect = Rect2(32, 48, 32, 16)

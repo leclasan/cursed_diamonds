@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt26daqrucdxu"]
+
+[ext_resource type="Texture2D" uid="uid://cwl4k40gmjwb8" path="res://Assets/world/tilemap_packed.png" id="1_1jaca"]
+[ext_resource type="Script" uid="uid://b5dhkqjexcfl6" path="res://Scripts/diamond.gd" id="1_tjcex"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1jaca"]
+radius = 8.0
+
+[node name="Diamond" type="Area2D" groups=["Diamonds"]]
+scale = Vector2(2.7, 2.7)
+script = ExtResource("1_tjcex")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1jaca")
+region_enabled = true
+region_rect = Rect2(126, 54, 18, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1jaca")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
