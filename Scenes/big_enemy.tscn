@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7ru2qfimryjq"]
+
+[ext_resource type="Script" uid="uid://lgbcgm62nq5d" path="res://Scripts/base_enemy.gd" id="1_m8xkl"]
+[ext_resource type="Texture2D" uid="uid://corum1jl7ebbm" path="res://Assets/enemies/tile_0021.png" id="2_u0ks7"]
+[ext_resource type="Texture2D" uid="uid://bg0h6is4pbrnc" path="res://Assets/enemies/tile_0022.png" id="3_fsd0j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xih60"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_u0ks7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fsd0j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwdrk"]
+size = Vector2(200, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icdqy"]
+size = Vector2(6, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lct11"]
+size = Vector2(66, 61.45)
+
+[node name="BigEnemy" type="CharacterBody2D"]
+script = ExtResource("1_m8xkl")
+speed = 240
+life = 150
+points_given = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -13)
+scale = Vector2(2.70833, 2.79167)
+sprite_frames = SubResource("SpriteFrames_xih60")
+autoplay = "default"
+frame = 1
+frame_progress = 0.431281
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 16)
+scale = Vector2(0.32, 0.32)
+shape = SubResource("RectangleShape2D_dwdrk")
+
+[node name="ChangeDirection" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeDirection"]
+position = Vector2(31, -10.5)
+shape = SubResource("RectangleShape2D_icdqy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ChangeDirection"]
+position = Vector2(-33, -10.5)
+shape = SubResource("RectangleShape2D_icdqy")
+
+[node name="Detect" type="Area2D" parent="." groups=["Enemies"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+position = Vector2(-1, -10.275)
+shape = SubResource("RectangleShape2D_lct11")
+
+[connection signal="body_entered" from="ChangeDirection" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Detect" to="." method="_on_detect_area_entered"]
+[connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bayxp2g7tyagb"]
+
+[ext_resource type="Script" uid="uid://x4xy81lsh73x" path="res://Scripts/bos_1_bullet.gd" id="1_sj67t"]
+[ext_resource type="Texture2D" uid="uid://bk6uthr7j6x2l" path="res://Assets/weapons/weapon_spritesheet.png" id="2_om76h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuf03"]
+size = Vector2(16, 7)
+
+[node name="Bos1Bullet" type="Area2D" groups=["EnemyWeapons"]]
+script = ExtResource("1_sj67t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_om76h")
+region_enabled = true
+region_rect = Rect2(144, 32, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_cuf03")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

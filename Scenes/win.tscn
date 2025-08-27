@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://tyq73ghvoleb"]
+
+[ext_resource type="Script" uid="uid://chd71aycpt3ax" path="res://Scripts/lose.gd" id="1_3mm25"]
+[ext_resource type="AudioStream" uid="uid://b6n7xw6ilyttk" path="res://Assets/music/01 - Falling Apart (Prologue).mp3" id="2_611cj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g1l0l"]
+font_size = 70
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3mm25")
+win = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -142.0
+offset_right = -100.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(7.09755, 7.09755)
+theme_override_font_sizes/font_size = 11
+text = "RETRY"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = 71.0
+offset_right = -100.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(7.09755, 7.09755)
+theme_override_font_sizes/font_size = 11
+text = "Home"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.5
+offset_top = 36.0
+offset_right = 164.5
+offset_bottom = 132.0
+grow_horizontal = 2
+text = "YOU WON WITH x POINTS"
+label_settings = SubResource("LabelSettings_g1l0l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_611cj")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

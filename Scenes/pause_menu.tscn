@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbxwgqw3g722s"]
+
+[ext_resource type="Script" uid="uid://y5hvxipwxp6v" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
+[ext_resource type="PackedScene" uid="uid://oh60f4lm7e0i" path="res://Scenes/settings.tscn" id="2_k0w1u"]
+
+[node name="PauseMenu" type="Control"]
+z_index = 51
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_emv3i")
+
+[node name="Settings2" parent="." instance=ExtResource("2_k0w1u")]
+layout_mode = 1
+
+[node name="Settings" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.5
+offset_top = -150.0
+offset_right = 135.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+
+[node name="Return" type="Button" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.5
+offset_top = 12.0
+offset_right = 207.5
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Continue Playing"
+
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dk81iut1xrtb6"]
+[gd_scene load_steps=4 format=3 uid="uid://dk81iut1xrtb6"]
 
 [ext_resource type="Script" uid="uid://ci5xdiuxouco2" path="res://Scripts/3_pistol.gd" id="1_k440d"]
+[ext_resource type="AudioStream" uid="uid://b6qwt7k4kq4ak" path="res://Assets/sfx/JDSherbert - Firearm FX - Weapon SFX Pack - Walther P38 - Fire - 1.ogg" id="2_gy0ar"]
 [ext_resource type="Texture2D" uid="uid://bk6uthr7j6x2l" path="res://Assets/weapons/weapon_spritesheet.png" id="2_ylcrd"]
 
 [node name="3Pistol" type="Node2D"]
@@ -11,3 +12,7 @@ position = Vector2(32, 2)
 texture = ExtResource("2_ylcrd")
 region_enabled = true
 region_rect = Rect2(32, 48, 32, 16)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gy0ar")
+bus = &"sfx"

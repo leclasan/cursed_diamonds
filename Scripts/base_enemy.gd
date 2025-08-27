@@ -4,11 +4,12 @@ class_name enemy
 
 @export var speed = 300
 @export var life = 50
+@export var points_given = 1
 
 var direction = 1
 
 func _ready() -> void:
-	chose_initial_direction()
+	direction *= chose_initial_direction()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -32,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = false
 	
 	if life <= 0:
-		get_parent().points += 1
+		get_parent().points += points_given
 		queue_free()
 
 

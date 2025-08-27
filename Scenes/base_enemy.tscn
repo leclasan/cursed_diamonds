@@ -27,7 +27,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="BaseEnemy" type="CharacterBody2D"]
+[node name="BaseEnemy" type="CharacterBody2D" groups=["Enemies"]]
 collision_layer = 2
 script = ExtResource("1_kjpuc")
 
@@ -37,6 +37,7 @@ scale = Vector2(0.32, 0.32)
 shape = SubResource("RectangleShape2D_t2m80")
 
 [node name="ChangeDirection" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChangeDirection"]
 position = Vector2(18, -0.5)
@@ -46,7 +47,7 @@ shape = SubResource("RectangleShape2D_kjpuc")
 position = Vector2(-18, 0)
 shape = SubResource("RectangleShape2D_kjpuc")
 
-[node name="Detect" type="Area2D" parent="."]
+[node name="Detect" type="Area2D" parent="." groups=["Enemies"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
 position = Vector2(-0.275, 0.225)

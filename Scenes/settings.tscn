@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://oh60f4lm7e0i"]
+
+[ext_resource type="PackedScene" uid="uid://bb858cm21b4n5" path="res://Scenes/volume_slider.tscn" id="1_4geyq"]
+[ext_resource type="Script" uid="uid://decfshjwuqkfa" path="res://Scripts/settings.gd" id="1_i44u3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lhmql"]
+font_size = 60
+
+[node name="Settings" type="Control"]
+process_mode = 3
+top_level = true
+z_index = 999
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i44u3")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.257844, 0.483897, 0.581091, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.0
+offset_top = -102.0
+offset_right = 291.0
+offset_bottom = 35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider" parent="VBoxContainer" instance=ExtResource("1_4geyq")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider2" parent="VBoxContainer" instance=ExtResource("1_4geyq")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VolumeSlider3" parent="VBoxContainer" instance=ExtResource("1_4geyq")]
+layout_mode = 2
+bus_name = "sfx"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 93.0
+grow_horizontal = 2
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_lhmql")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -119.0
+offset_top = -163.0
+offset_right = 119.0
+offset_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 45
+text = "Return"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

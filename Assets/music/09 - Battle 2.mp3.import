@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bulrtb3o1ctyt"
+path="res://.godot/imported/09 - Battle 2.mp3-92f33a06784cb85b56b8d52516d99ed5.mp3str"
+
+[deps]
+
+source_file="res://Assets/music/09 - Battle 2.mp3"
+dest_files=["res://.godot/imported/09 - Battle 2.mp3-92f33a06784cb85b56b8d52516d99ed5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
