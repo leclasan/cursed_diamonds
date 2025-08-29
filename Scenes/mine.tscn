@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkx6plvvuph0h"]
+
+[ext_resource type="Script" uid="uid://6brutkjuqfnq" path="res://Scripts/mine.gd" id="1_mygvu"]
+[ext_resource type="Texture2D" uid="uid://bk6uthr7j6x2l" path="res://Assets/weapons/weapon_spritesheet.png" id="1_qoe3o"]
+
+[node name="Mine" type="Node2D"]
+script = ExtResource("1_mygvu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, 0)
+texture = ExtResource("1_qoe3o")
+region_enabled = true
+region_rect = Rect2(112, 0, 16, 16)

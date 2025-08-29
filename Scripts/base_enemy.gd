@@ -8,6 +8,8 @@ class_name enemy
 
 var direction = 1
 
+var powerup_scene = preload("res://Scenes/powerup.tscn")
+
 func _ready() -> void:
 	direction *= chose_initial_direction()
 
@@ -34,6 +36,12 @@ func _physics_process(delta: float) -> void:
 	
 	if life <= 0:
 		get_parent().points += points_given
+		if PlayerStats.has_powerup == false:
+			if randi_range(1, 25) == 25:
+				var powerup = powerup_scene.instantiate()
+				powerup.position = position
+				add_sibling(powerup)
+				PlayerStats.has_powerup = true
 		queue_free()
 
 

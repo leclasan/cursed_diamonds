@@ -38,21 +38,25 @@ func _on_attack_timer_timeout() -> void:
 		bullet.position = global_position
 		bullet.old_speed = Vector2.UP * 3
 		bullet.velocity = 220
+		bullet.delete_time = 4
 		add_sibling(bullet)
 		bullet = bullet_scene.instantiate()
 		bullet.position = global_position
 		bullet.old_speed = Vector2.DOWN * 3
 		bullet.velocity = 220
+		bullet.delete_time = 4
 		add_sibling(bullet)
 		bullet = bullet_scene.instantiate()
 		bullet.position = global_position
 		bullet.old_speed = Vector2.LEFT * 3
 		bullet.velocity = 220
+		bullet.delete_time = 4
 		add_sibling(bullet)
 		bullet = bullet_scene.instantiate()
 		bullet.position = global_position
 		bullet.old_speed = Vector2.RIGHT * 3
 		bullet.velocity = 220
+		bullet.delete_time = 4
 		add_sibling(bullet)
 	if random_number > 25 and random_number < 50:
 		var num_bullets = 30
@@ -61,6 +65,7 @@ func _on_attack_timer_timeout() -> void:
 			bullet.position = global_position
 			bullet.old_speed = Vector2.UP.rotated((2 * PI / num_bullets) * i) * 2
 			bullet.velocity = 500
+			bullet.delete_time = 1
 			add_sibling(bullet)
 			await get_tree().create_timer(0.2).timeout
 	$AttackTimer.start()

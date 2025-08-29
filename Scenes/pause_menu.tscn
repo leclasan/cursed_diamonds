@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://oh60f4lm7e0i" path="res://Scenes/settings.tscn" id="2_k0w1u"]
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 z_index = 51
 layout_mode = 3
 anchors_preset = 15

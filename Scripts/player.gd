@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var weapon_list = ["res://Scenes/pistol.tscn", "res://Scenes/3_pistol.tscn", "res://Scenes/minigun.tscn","res://Scenes/banana_boomerang.tscn" ]
+var weapon_list = ["res://Scenes/pistol.tscn", "res://Scenes/3_pistol.tscn", "res://Scenes/minigun.tscn", "res://Scenes/banana_boomerang.tscn", "res://Scenes/mine.tscn" ]
 
 var speed = 300.0
 var jump = -300
@@ -18,6 +18,10 @@ var can_shoot = true
 
 var stairs = false
 
+var cooldown_powerup = 1
+var jump_powerup = 0
+var speed_powerup = 0
+
 func _ready() -> void:
 	var resource = load(PlayerStats.weapon_file).instantiate()
 	add_child(resource)
@@ -27,12 +31,12 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		bullet_direction = direction
-		velocity.x = direction * speed
-		if animated_sprite_2d.animation != "running":
-			animated_sprite_2d.play("running")
+		velocity.x = direction * (speed + speed_powerup)
+		if animated_sprite_2d.animation != PlayerStats.color + "_running":
+			animated_sprite_2d.play(PlayerStats.color + "_running")
 	else:
-		if animated_sprite_2d.animation != "normal":
-			animated_sprite_2d.play("normal")
+		if animated_sprite_2d.animation != PlayerStats.color + "_normal":
+			animated_sprite_2d.play(PlayerStats.color + "_normal")
 		velocity.x = move_toward(velocity.x, 0, speed)
 	
 	if stairs:
@@ -64,7 +68,7 @@ func _physics_process(delta: float) -> void:
 			if can_shoot:
 				PlayerStats.weapon.shoot(bullet_direction)
 				can_shoot = false
-				$CanShootTimer.start(PlayerStats.weapon_cooldown)
+				$CanShootTimer.start(PlayerStats.weapon_cooldown / cooldown_powerup)
 	else:
 		if Input.is_action_pressed("shoot"):
 			if can_shoot:
@@ -96,7 +100,7 @@ func sort_y_movement(delta):
 		JUMP_STATES.FALLING:
 			velocity += WorldStats.gravity * delta
 		JUMP_STATES.INITIALJUMP:
-			velocity.y = jump 
+			velocity.y = jump + jump_powerup
 			jump_state = JUMP_STATES.JUMPPRESSED
 			get_tree().create_timer(jump_timer_seconds).timeout.connect(on_jump_timer_timeout)
 		JUMP_STATES.JUMPPRESSED:
@@ -136,3 +140,20 @@ func _on_detect_body_entered(body: Node2D) -> void:
 
 func _on_detect_body_exited(body: Node2D) -> void:
 	stairs = false
+
+func get_powerup():
+	PlayerStats.has_powerup = true
+	var random_number = randi_range(1, 3)
+	if random_number == 1:
+		cooldown_powerup = 1.5
+	if random_number == 2:
+		jump_powerup = -50
+	if random_number == 3:
+		speed_powerup = 50
+	$PowerupTimer.start()
+
+func _on_powerup_timer_timeout() -> void:
+	PlayerStats.has_powerup = false
+	cooldown_powerup = 1
+	jump_powerup = 0
+	speed_powerup = 0

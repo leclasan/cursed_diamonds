@@ -1,17 +1,63 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpuuefb3kul8h"]
+[gd_scene load_steps=14 format=3 uid="uid://cpuuefb3kul8h"]
 
 [ext_resource type="Script" uid="uid://de3o03ot1ppjj" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://cljrb33i8c3ah" path="res://Assets/players/tile_0009.png" id="2_gymyn"]
 [ext_resource type="Texture2D" uid="uid://do371pvfeg2i" path="res://Assets/players/tile_0000.png" id="2_vgqql"]
 [ext_resource type="Texture2D" uid="uid://bvbet0bm4qfr1" path="res://Assets/players/tile_0001.png" id="3_fkybt"]
+[ext_resource type="Texture2D" uid="uid://b201rglc13ina" path="res://Assets/players/tile_0010.png" id="3_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://bjjrul6adx5ky" path="res://Assets/players/tile_0002.png" id="4_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://ok2i2j60pb5g" path="res://Assets/players/tile_0003.png" id="5_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://bqf7jo6j5yiiq" path="res://Assets/players/tile_0004.png" id="8_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://cbrbk4kkvt8m1" path="res://Assets/players/tile_0005.png" id="9_fd4e3"]
+[ext_resource type="Texture2D" uid="uid://cexj7wj4q5sj5" path="res://Assets/players/tile_0006.png" id="10_qqcod"]
+[ext_resource type="Texture2D" uid="uid://btmt6nchtfiwt" path="res://Assets/players/tile_0007.png" id="11_igrcy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3wgy"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_gymyn")
+}],
+"loop": true,
+"name": &"beish_normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gymyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pu2lt")
+}],
+"loop": true,
+"name": &"beish_running",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ukyrk")
+}],
+"loop": true,
+"name": &"blue_normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ukyrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7dp3o")
+}],
+"loop": true,
+"name": &"blue_running",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_vgqql")
 }],
 "loop": false,
-"name": &"normal",
+"name": &"green_normal",
 "speed": 5.0
 }, {
 "frames": [{
@@ -22,7 +68,45 @@ animations = [{
 "texture": ExtResource("3_fkybt")
 }],
 "loop": true,
-"name": &"running",
+"name": &"green_running",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_h4iuc")
+}],
+"loop": true,
+"name": &"pink_normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_h4iuc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fd4e3")
+}],
+"loop": true,
+"name": &"pink_running",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_qqcod")
+}],
+"loop": true,
+"name": &"yellow_normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_qqcod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_igrcy")
+}],
+"loop": true,
+"name": &"yellow_running",
 "speed": 5.0
 }]
 
@@ -37,7 +121,7 @@ script = ExtResource("1_v0iea")
 position = Vector2(-1, -1)
 scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_x3wgy")
-animation = &"running"
+animation = &"beish_running"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
@@ -57,6 +141,11 @@ shape = SubResource("RectangleShape2D_6t5aa")
 wait_time = 0.333
 one_shot = true
 
+[node name="PowerupTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
 [connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]
 [connection signal="body_exited" from="Detect" to="." method="_on_detect_body_exited"]
 [connection signal="timeout" from="CanShootTimer" to="." method="_on_can_shoot_timer_timeout"]
+[connection signal="timeout" from="PowerupTimer" to="." method="_on_powerup_timer_timeout"]

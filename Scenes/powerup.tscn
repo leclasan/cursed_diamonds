@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ij8axkl0q0vc"]
+
+[ext_resource type="Texture2D" uid="uid://bpn72gueabipg" path="res://Assets/world/red_diamond.png" id="1_85oov"]
+[ext_resource type="Script" uid="uid://c52xm1xpwnq4s" path="res://Scripts/powerup.gd" id="1_dkaad"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f1g1t"]
+radius = 7.5
+
+[node name="Powerup" type="Area2D" groups=["Diamonds"]]
+script = ExtResource("1_dkaad")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_85oov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_f1g1t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -307,7 +307,6 @@ bus = &"Music"
 parameters/looping = true
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_t8all")]
-process_mode = 3
 visible = false
 z_index = 999
 anchors_preset = 8

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://oh60f4lm7e0i"]
+[gd_scene load_steps=5 format=3 uid="uid://oh60f4lm7e0i"]
 
 [ext_resource type="PackedScene" uid="uid://bb858cm21b4n5" path="res://Scenes/volume_slider.tscn" id="1_4geyq"]
 [ext_resource type="Script" uid="uid://decfshjwuqkfa" path="res://Scripts/settings.gd" id="1_i44u3"]
+[ext_resource type="PackedScene" uid="uid://br7uuyxjkus7k" path="res://Scenes/change_character.tscn" id="3_lhmql"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lhmql"]
 font_size = 60
@@ -35,9 +36,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -291.0
-offset_top = -102.0
+offset_top = -175.0
 offset_right = 291.0
-offset_bottom = 35.0
+offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -70,6 +71,12 @@ vertical_alignment = 1
 [node name="VolumeSlider3" parent="VBoxContainer" instance=ExtResource("1_4geyq")]
 layout_mode = 2
 bus_name = "sfx"
+
+[node name="ChangeCharacter" parent="." instance=ExtResource("3_lhmql")]
+layout_mode = 1
+offset_top = 50.0
+offset_bottom = 50.0
+focus_mode = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

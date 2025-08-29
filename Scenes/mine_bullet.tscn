@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn12vhr6t8pqg"]
+
+[ext_resource type="Script" uid="uid://i3s4pv1cd6in" path="res://Scripts/mine_bullet.gd" id="1_dykfb"]
+[ext_resource type="Texture2D" uid="uid://bk6uthr7j6x2l" path="res://Assets/weapons/weapon_spritesheet.png" id="2_ee68a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frc64"]
+size = Vector2(12, 17)
+
+[node name="MineBullet" type="Area2D" groups=["Weapons"]]
+script = ExtResource("1_dykfb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ee68a")
+region_enabled = true
+region_rect = Rect2(112, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_frc64")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

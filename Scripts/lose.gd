@@ -8,6 +8,7 @@ func _ready() -> void:
 		$Label.text = "YOU WON WITH " + str(PlayerStats.points) + " POINTS"
 	else:
 		$Label.text = "YOU LOST WITH " + str(PlayerStats.points) + " POINTS"
+	PlayerStats.reset()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

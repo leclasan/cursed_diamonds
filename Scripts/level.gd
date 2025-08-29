@@ -15,6 +15,8 @@ var last_enemy_spawn_pos
 var diamond_scene = preload("res://Scenes/diamond.tscn")
 var last_diamond_spawn_pos
 
+var enemy_spawn_time = 3
+
 func _ready() -> void:
 	var enemi = enemy_scene.instantiate()
 	var enemi_pos = $EnemySpawn.get_child(randi_range(0,$EnemySpawn.get_child_count()-1)).position
@@ -37,6 +39,8 @@ func _process(delta: float) -> void:
 	var remaining_time = time - passed_time
 	$TimeLabel.text = str(remaining_time) + "s"
 	if remaining_time <= 0:
+		for i in get_child_count():
+			get_child(0).queue_free()
 		get_tree().change_scene_to_packed(next_scene)
 	
 	PlayerStats.points = points
@@ -114,4 +118,6 @@ func spawn_enemy_group(pos):
 		var big_enemy = big_enemy_scene.instantiate()
 		big_enemy.position = pos
 		add_child(big_enemy)
-	$EnemySpawnTimer.start()
+	if enemy_spawn_time > 2.5:
+		enemy_spawn_time -= 0.1 
+	$EnemySpawnTimer.start(enemy_spawn_time)

@@ -1,10 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://bayxp2g7tyagb"]
+[gd_scene load_steps=10 format=3 uid="uid://bayxp2g7tyagb"]
 
 [ext_resource type="Script" uid="uid://x4xy81lsh73x" path="res://Scripts/bos_1_bullet.gd" id="1_sj67t"]
 [ext_resource type="Texture2D" uid="uid://bk6uthr7j6x2l" path="res://Assets/weapons/weapon_spritesheet.png" id="2_om76h"]
+[ext_resource type="Texture2D" uid="uid://0pvxtoye15xy" path="res://Assets/bullets/Yellow Effect Bullet Impact Explosion 32x32.png" id="3_cuf03"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cuf03"]
 size = Vector2(16, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tys5d"]
+atlas = ExtResource("3_cuf03")
+region = Rect2(512, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k34sw"]
+atlas = ExtResource("3_cuf03")
+region = Rect2(544, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8rnh"]
+atlas = ExtResource("3_cuf03")
+region = Rect2(576, 384, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_si42v"]
+atlas = ExtResource("3_cuf03")
+region = Rect2(608, 384, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_if4sg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tys5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k34sw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8rnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_si42v")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": false,
+"name": &"nothing",
+"speed": 5.0
+}]
 
 [node name="Bos1Bullet" type="Area2D" groups=["EnemyWeapons"]]
 script = ExtResource("1_sj67t")
@@ -18,4 +60,13 @@ region_rect = Rect2(144, 32, 16, 16)
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_cuf03")
 
+[node name="DeleteTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_if4sg")
+animation = &"nothing"
+autoplay = "nothing"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]

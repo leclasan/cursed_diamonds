@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://br7uuyxjkus7k"]
+
+[ext_resource type="Script" uid="uid://do8yvtsdixup2" path="res://Scripts/change_character.gd" id="1_dune3"]
+[ext_resource type="Texture2D" uid="uid://yno3adn2e4a6" path="res://Assets/UI/navigation_w.png" id="1_iqhqe"]
+[ext_resource type="Texture2D" uid="uid://dav7roo7a3mp8" path="res://Assets/UI/navigation_e.png" id="2_dune3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fsgpl"]
+font_size = 30
+
+[node name="ChangeCharacter" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_dune3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -21.0
+offset_right = 59.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YELLOW"
+label_settings = SubResource("LabelSettings_fsgpl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonLeft" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -20.0
+offset_right = -66.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+icon = ExtResource("1_iqhqe")
+
+[node name="ButtonRight" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -20.0
+offset_right = 112.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+icon = ExtResource("2_dune3")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="ButtonLeft" to="." method="_on_button_left_pressed"]
+[connection signal="pressed" from="ButtonRight" to="." method="_on_button_right_pressed"]
