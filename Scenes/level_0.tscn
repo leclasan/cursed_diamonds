@@ -260,6 +260,7 @@ z_index = 98
 position = Vector2(586, 563)
 
 [node name="EnemySpawn" type="Node2D" parent="."]
+process_mode = 1
 
 [node name="Marker2D" type="Marker2D" parent="EnemySpawn"]
 position = Vector2(401, 13)

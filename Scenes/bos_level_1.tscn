@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cew1c4wxeifxr"]
+[gd_scene load_steps=14 format=3 uid="uid://cew1c4wxeifxr"]
 
 [ext_resource type="Script" uid="uid://c14piwd5ufx1y" path="res://Scripts/level.gd" id="1_sb2ic"]
 [ext_resource type="PackedScene" uid="uid://b2w3jnmid18m8" path="res://Scenes/lose.tscn" id="2_hs74y"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cbxwgqw3g722s" path="res://Scenes/pause_menu.tscn" id="7_t8all"]
 [ext_resource type="PackedScene" uid="uid://jj3a7uxrbx6j" path="res://Scenes/bos_1.tscn" id="8_hs74y"]
 [ext_resource type="PackedScene" uid="uid://dkl5nys3b5q0q" path="res://Scenes/life.tscn" id="10_stj15"]
+[ext_resource type="PackedScene" uid="uid://ck4muougotiq5" path="res://Scenes/bono.tscn" id="11_f3u3e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hokya"]
 texture = ExtResource("4_stj15")
@@ -327,7 +328,10 @@ offset_bottom = 69.0
 text = "120"
 
 [node name="Bos1" parent="." instance=ExtResource("8_hs74y")]
+process_mode = 1
 position = Vector2(576, 324)
 
 [node name="Life" parent="." instance=ExtResource("10_stj15")]
 position = Vector2(62, 61)
+
+[node name="Bono" parent="." instance=ExtResource("11_f3u3e")]

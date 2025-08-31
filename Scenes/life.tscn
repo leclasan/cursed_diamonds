@@ -52,3 +52,17 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_8es6c")
 animation = &"full"
 autoplay = "full"
+
+[node name="Life4" type="AnimatedSprite2D" parent="."]
+position = Vector2(93, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8es6c")
+animation = &"full"
+autoplay = "full"
+
+[node name="Life5" type="AnimatedSprite2D" parent="."]
+position = Vector2(124, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_8es6c")
+animation = &"full"
+autoplay = "full"

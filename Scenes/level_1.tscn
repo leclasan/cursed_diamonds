@@ -1,16 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://rf6swqh2hpx0"]
+[gd_scene load_steps=9 format=3 uid="uid://rf6swqh2hpx0"]
 
 [ext_resource type="PackedScene" uid="uid://cpuuefb3kul8h" path="res://Scenes/player.tscn" id="1_vk57k"]
 [ext_resource type="Script" uid="uid://c14piwd5ufx1y" path="res://Scripts/level.gd" id="1_xfk5q"]
 [ext_resource type="PackedScene" uid="uid://l11uek7a7fog" path="res://Scenes/tile_map.tscn" id="2_8ffim"]
-[ext_resource type="PackedScene" uid="uid://tyq73ghvoleb" path="res://Scenes/win.tscn" id="2_evi0p"]
+[ext_resource type="PackedScene" uid="uid://b348va6kd1sp2" path="res://Scenes/bos_level_2.tscn" id="2_lsmp6"]
 [ext_resource type="AudioStream" uid="uid://bcrxvbhkhp6h1" path="res://Assets/music/13 - Decisive Battle 1 - Don't Be Afraid.mp3" id="4_7p6j4"]
 [ext_resource type="PackedScene" uid="uid://cbxwgqw3g722s" path="res://Scenes/pause_menu.tscn" id="5_6444e"]
 [ext_resource type="PackedScene" uid="uid://dkl5nys3b5q0q" path="res://Scenes/life.tscn" id="7_lsmp6"]
+[ext_resource type="PackedScene" uid="uid://ck4muougotiq5" path="res://Scenes/bono.tscn" id="8_xrdnt"]
 
 [node name="Level1" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_xfk5q")
-next_scene = ExtResource("2_evi0p")
+next_scene = ExtResource("2_lsmp6")
 
 [node name="TileMap" parent="." instance=ExtResource("2_8ffim")]
 position = Vector2(518, 563)
@@ -84,5 +86,7 @@ text = "120"
 
 [node name="Life" parent="." instance=ExtResource("7_lsmp6")]
 position = Vector2(63, 62)
+
+[node name="Bono" parent="." instance=ExtResource("8_xrdnt")]
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

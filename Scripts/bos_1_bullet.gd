@@ -2,6 +2,8 @@ extends Area2D
 
 @onready var player = $"../Player"
 
+var explosion_scene = preload("res://Scenes/explosion_animation.tscn")
+
 var velocity = 350
 
 var old_speed = Vector2.ZERO
@@ -34,11 +36,20 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Players"):
 		PlayerStats.lives -= 1
 		$Sprite2D.hide()
+		var explosion = explosion_scene.instantiate()
+		explosion.position = position
+		add_sibling(explosion)
 		queue_free()
 	else:
 		$Sprite2D.hide()
+		var explosion = explosion_scene.instantiate()
+		explosion.position = position
+		add_sibling(explosion)
 		queue_free()
 
 func _on_delete_timer_timeout() -> void:
 	$Sprite2D.hide()
+	var explosion = explosion_scene.instantiate()
+	explosion.position = position
+	add_sibling(explosion)
 	queue_free()

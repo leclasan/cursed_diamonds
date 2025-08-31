@@ -1,0 +1,97 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck4muougotiq5"]
+
+[ext_resource type="Script" uid="uid://ht40qdvbhu02" path="res://Scripts/bono.gd" id="1_2vnpf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yxw1r"]
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_7efwl"]
+font_size = 50
+
+[node name="Bono" type="Control"]
+process_mode = 3
+top_level = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2vnpf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Bono1" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 380.0
+offset_top = 302.0
+offset_right = 769.0
+offset_bottom = 325.0
+color = Color(0.0579999, 0.87, 0, 1)
+
+[node name="Bono2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 380.0
+offset_top = 336.0
+offset_right = 769.0
+offset_bottom = 359.0
+color = Color(0.0579999, 0.87, 0, 1)
+
+[node name="Bono3" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 380.0
+offset_top = 370.0
+offset_right = 769.0
+offset_bottom = 393.0
+color = Color(0.0579999, 0.87, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 390.0
+offset_top = 296.0
+offset_right = 759.0
+offset_bottom = 395.0
+text = "EXTRA LIFE          |          1000 points
+NEW WEAPON    |          2000 points
+EXTRA LIFE          |          3000 points"
+label_settings = SubResource("LabelSettings_yxw1r")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -457.5
+offset_right = 457.5
+offset_bottom = 141.0
+grow_horizontal = 2
+text = "BONUS:
+GET BONUS ACORDIN TO YOU POINTS"
+label_settings = SubResource("LabelSettings_7efwl")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -45.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 27
+text = "NEXT LEVEL"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

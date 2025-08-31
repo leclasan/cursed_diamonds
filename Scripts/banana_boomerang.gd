@@ -22,4 +22,4 @@ func shoot(direction):
 	var bullet = bullet_scene.instantiate()
 	bullet.position = global_position
 	bullet.direction = direction
-	get_tree().get_root().add_child(bullet)
+	get_parent().get_parent().add_child(bullet)

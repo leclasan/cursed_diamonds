@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7rokfxjgatd1"]
+
+[ext_resource type="Script" uid="uid://cjiiwvblwi67l" path="res://Scripts/bos_2.gd" id="1_gnkau"]
+[ext_resource type="Texture2D" uid="uid://q8gc37ec4usc" path="res://Assets/enemies/tile_0024.png" id="1_pnqpy"]
+[ext_resource type="Texture2D" uid="uid://0vte5dx0s2iw" path="res://Assets/enemies/tile_0025.png" id="2_gnkau"]
+[ext_resource type="Texture2D" uid="uid://b6wfgcm0dhfqr" path="res://Assets/enemies/tile_0026.png" id="3_xc8t4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_du3pa"]
+size = Vector2(18, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yn77s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pnqpy")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_gnkau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xc8t4")
+}, {
+"duration": 0.5,
+"texture": ExtResource("2_gnkau")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]
+
+[node name="Bos2" type="Area2D" groups=["Enemies"]]
+scale = Vector2(5, 5)
+script = ExtResource("1_gnkau")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_du3pa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yn77s")
+animation = &"fly"
+autoplay = "fly"
+
+[node name="NextStateTimer" type="Timer" parent="."]
+
+[node name="DiamondTimer" type="Timer" parent="."]
+
+[node name="GoDownTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="NextStateTimer" to="." method="next_state"]
+[connection signal="timeout" from="DiamondTimer" to="." method="_on_diamond_timer_timeout"]
+[connection signal="timeout" from="GoDownTimer" to="." method="go_down"]

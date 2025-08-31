@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var weapon_list = ["res://Scenes/pistol.tscn", "res://Scenes/3_pistol.tscn", "res://Scenes/minigun.tscn", "res://Scenes/banana_boomerang.tscn", "res://Scenes/mine.tscn" ]
-
 var speed = 300.0
 var jump = -300
 var stairs_velocity = 100
@@ -126,7 +124,7 @@ func change_weapon():
 	var repeat = true
 	var random_weapon
 	while repeat:
-		random_weapon = weapon_list.pick_random()
+		random_weapon = PlayerStats.weapon_list.pick_random()
 		if random_weapon != PlayerStats.weapon_file:
 			repeat = false
 	PlayerStats.weapon.queue_free()

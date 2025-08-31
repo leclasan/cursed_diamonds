@@ -9,20 +9,19 @@ var cooldown = 0.333
 func _ready() -> void:
 	PlayerStats.weapon_cooldown = cooldown
 	PlayerStats.weapon = self
-	PlayerStats.weapon_file = "res://Scenes/pistol.tscn"
+	PlayerStats.weapon_file = "res://Scenes/bonus_pistol.tscn"
 	PlayerStats.just_press = true
 
 func _process(delta: float) -> void:
-	if PlayerStats.weapon_flip:
-		rotation = PI
-		$Sprite2D.flip_v = true
-	else:
-		rotation = 0
-		$Sprite2D.flip_v = false
-
+	pass
+	
 func shoot(direction):
 	var bullet = bullet_scene.instantiate()
 	bullet.position = global_position
-	bullet.direction = direction
+	bullet.direction = 1
+	get_parent().get_parent().add_child(bullet)
+	bullet = bullet_scene.instantiate()
+	bullet.position = global_position
+	bullet.direction = -1
 	get_parent().get_parent().add_child(bullet)
 	audio_stream_player.play()
