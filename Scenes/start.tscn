@@ -35,6 +35,8 @@ offset_right = 130.5
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../TutorialButton")
 theme_override_font_sizes/font_size = 85
 text = "START"
 
@@ -51,6 +53,8 @@ offset_right = 208.5
 offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../SettingsButton")
 theme_override_font_sizes/font_size = 85
 text = "TUTORIAL"
 
@@ -86,6 +90,8 @@ offset_right = 104.5
 offset_bottom = 279.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_top = NodePath("../TutorialButton")
+focus_neighbor_bottom = NodePath("../Button")
 theme_override_font_sizes/font_size = 30
 text = "SETTINGS"
 

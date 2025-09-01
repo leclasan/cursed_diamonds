@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcga2oec5vikw"]
+[gd_scene load_steps=10 format=3 uid="uid://dcga2oec5vikw"]
 
 [ext_resource type="PackedScene" uid="uid://l11uek7a7fog" path="res://Scenes/tile_map.tscn" id="1_feyax"]
 [ext_resource type="Script" uid="uid://dvfe2rm1gjank" path="res://Scripts/tutorial.gd" id="1_i6t4g"]
 [ext_resource type="PackedScene" uid="uid://cpuuefb3kul8h" path="res://Scenes/player.tscn" id="2_omtrn"]
 [ext_resource type="AudioStream" uid="uid://cfm82rq57ne2a" path="res://Assets/music/08 - Shop.mp3" id="3_omtrn"]
 [ext_resource type="PackedScene" uid="uid://cbxwgqw3g722s" path="res://Scenes/pause_menu.tscn" id="5_p8jf4"]
+[ext_resource type="Texture2D" uid="uid://cqeik0mp1cppk" path="res://Assets/world/tile_0151.png" id="6_p1f1o"]
+[ext_resource type="Texture2D" uid="uid://6fl0hpunuro8" path="res://Assets/world/tile_0312.png" id="7_ys4pu"]
+[ext_resource type="Texture2D" uid="uid://cipxvv7ly34kf" path="res://Assets/world/tile_0313.png" id="8_h2ono"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p8jf4"]
 font_size = 26
@@ -45,7 +48,7 @@ offset_top = 40.0
 offset_right = 159.0
 offset_bottom = 76.0
 grow_horizontal = 2
-text = "Use arrow keys to move"
+text = "Shoot with x, kill the enemy (killing a enemy grants 1 point)"
 label_settings = SubResource("LabelSettings_p8jf4")
 autowrap_mode = 3
 
@@ -60,5 +63,35 @@ offset_left = 586.0
 offset_top = 286.0
 offset_right = 586.0
 offset_bottom = 286.0
+
+[node name="MoveControllsSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(571.5, 64)
+scale = Vector2(2.5625, 2.5625)
+texture = ExtResource("6_p1f1o")
+
+[node name="JumpSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(555, 62)
+scale = Vector2(1.78861, 1.78861)
+texture = ExtResource("7_ys4pu")
+
+[node name="JumpSprite3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(618, 100)
+scale = Vector2(1.78861, 1.78861)
+texture = ExtResource("7_ys4pu")
+
+[node name="JumpSprite2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(653, 62)
+scale = Vector2(1.78861, 1.78861)
+texture = ExtResource("7_ys4pu")
+
+[node name="AttackSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(564, 61)
+scale = Vector2(1.789, 1.789)
+texture = ExtResource("8_h2ono")
 
 [connection signal="timeout" from="Timer" to="." method="next_state"]

@@ -12,3 +12,7 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	hide()
+	get_parent().reset_focus()
+
+func reset_focus():
+	$Button.grab_focus()

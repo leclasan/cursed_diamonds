@@ -35,6 +35,8 @@ offset_right = 153.5
 offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_top = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button2")
 theme_override_font_sizes/font_size = 100
 text = "RETRY"
 
@@ -51,6 +53,8 @@ offset_right = 148.5
 offset_bottom = 239.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../Button")
 theme_override_font_sizes/font_size = 100
 text = "Home"
 

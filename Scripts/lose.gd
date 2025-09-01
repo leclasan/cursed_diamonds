@@ -9,6 +9,7 @@ func _ready() -> void:
 	else:
 		$Label.text = "YOU LOST WITH " + str(PlayerStats.points) + " POINTS"
 	PlayerStats.reset()
+	reset_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,3 +23,6 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/start.tscn")
+
+func reset_focus():
+	$Button.grab_focus()

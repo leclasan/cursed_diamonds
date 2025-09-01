@@ -129,7 +129,6 @@ func attack_1():
 func attack_2(delta: float):
 	if attack_times < 3:
 		if position.distance_to(diagonal_attack_player_position) < 1 and going_up == false:
-			print("going up")
 			going_up = true
 		elif going_up :
 			var distance_pos_1 = position.distance_to(position_1)
@@ -141,7 +140,6 @@ func attack_2(delta: float):
 					vel = position_1 - position
 				position += vel
 				if position.distance_to(position_1) < 1:
-					print("in position 1")
 					attack_times += 1
 					going_up = false
 					diagonal_attack_direction = Vector2.ZERO
@@ -153,7 +151,6 @@ func attack_2(delta: float):
 					vel = position_2 - position
 				position += vel
 				if position.distance_to(position_2) < 1:
-					print("in position 2")
 					attack_times += 1
 					going_up = false
 					diagonal_attack_direction = Vector2.ZERO

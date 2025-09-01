@@ -14,7 +14,11 @@ var first_pause = true
 var has_paused = false
 
 func _ready() -> void:
-	label.text = "Move with arrow keys"
+	if PlayerStats.is_using_controller:
+		label.text = "Move with "
+		$MoveControllsSprite.show()
+	else:
+		label.text = "Move with arrow keys"
 
 
 
@@ -44,16 +48,27 @@ func _process(delta: float) -> void:
 func next_state():
 	match state:
 		STATES.MOVING:
+			$MoveControllsSprite.hide()
 			state = STATES.JUMPING
 			label.text = "Jump with z, press z for low jump, push z for long jump"
+			if PlayerStats.is_using_controller:
+				$JumpSprite.show()
+				$JumpSprite2.show()
+				$JumpSprite3.show()
 		STATES.JUMPING:
+			$JumpSprite.hide()
+			$JumpSprite2.hide()
+			$JumpSprite3.hide()
 			state = STATES.SHOOTING
 			label.text = "Shoot with x, kill the enemy (killing a enemy grants 1 point)"
+			if PlayerStats.is_using_controller:
+				$AttackSprite.show()
 			var enemi = preload("res://Scenes/base_enemy.tscn").instantiate()
 			enemi.position = Vector2(791, 200)
 			enemi.connect("tree_exited", next_state)
 			add_child(enemi)
 		STATES.SHOOTING:
+			$AttackSprite.hide()
 			state = STATES.DIAMOND
 			label.text = "Get the diamond to get 50 points and change weapon"
 			var diamond = preload("res://Scenes/diamond.tscn").instantiate()
@@ -62,7 +77,10 @@ func next_state():
 			add_child(diamond)
 		STATES.DIAMOND:
 			state = STATES.PAUSE
-			label.text = "Press esc or p to open pause menu"
+			if PlayerStats.is_using_controller:
+				label.text = "Press back or start to open pause menu"
+			else:
+				label.text = "Press esc or p to open pause menu"
 		STATES.PAUSE:
 			label.text = "Tutorial finished, now you are ready to play the game"
 			await get_tree().create_timer(5).timeout

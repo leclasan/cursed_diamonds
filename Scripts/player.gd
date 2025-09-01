@@ -28,7 +28,10 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
-		bullet_direction = direction
+		if direction > 0:
+			bullet_direction = 1
+		else:
+			bullet_direction = -1
 		velocity.x = direction * (speed + speed_powerup)
 		if animated_sprite_2d.animation != PlayerStats.color + "_running":
 			animated_sprite_2d.play(PlayerStats.color + "_running")

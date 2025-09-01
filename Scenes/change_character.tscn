@@ -18,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_mode = 2
 script = ExtResource("1_dune3")
 
 [node name="Label" type="Label" parent="."]
@@ -51,6 +52,8 @@ offset_right = -66.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_left = NodePath("../ButtonRight")
+focus_neighbor_right = NodePath("../ButtonRight")
 focus_mode = 1
 icon = ExtResource("1_iqhqe")
 
@@ -67,10 +70,13 @@ offset_right = 112.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_neighbor_left = NodePath("../ButtonLeft")
+focus_neighbor_right = NodePath("../ButtonLeft")
 focus_mode = 1
 icon = ExtResource("2_dune3")
 icon_alignment = 1
 expand_icon = true
 
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
 [connection signal="pressed" from="ButtonLeft" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="ButtonRight" to="." method="_on_button_right_pressed"]

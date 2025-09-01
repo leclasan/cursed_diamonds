@@ -50,6 +50,8 @@ vertical_alignment = 1
 
 [node name="VolumeSlider" parent="VBoxContainer" instance=ExtResource("1_4geyq")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../Button")
+focus_neighbor_bottom = NodePath("../VolumeSlider2")
 bus_name = "Master"
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
@@ -60,6 +62,8 @@ vertical_alignment = 1
 
 [node name="VolumeSlider2" parent="VBoxContainer" instance=ExtResource("1_4geyq")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../VolumeSlider")
+focus_neighbor_bottom = NodePath("../VolumeSlider3")
 bus_name = "Music"
 
 [node name="Label3" type="Label" parent="VBoxContainer"]
@@ -70,12 +74,16 @@ vertical_alignment = 1
 
 [node name="VolumeSlider3" parent="VBoxContainer" instance=ExtResource("1_4geyq")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../VolumeSlider2")
+focus_neighbor_bottom = NodePath("../../ChangeCharacter")
 bus_name = "sfx"
 
 [node name="ChangeCharacter" parent="." instance=ExtResource("3_lhmql")]
 layout_mode = 1
 offset_top = 50.0
 offset_bottom = 50.0
+focus_neighbor_top = NodePath("../VBoxContainer/VolumeSlider3")
+focus_neighbor_bottom = NodePath("../Button")
 focus_mode = 1
 
 [node name="Label" type="Label" parent="."]
@@ -102,6 +110,8 @@ offset_right = 119.0
 offset_bottom = -92.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_neighbor_top = NodePath("../ChangeCharacter")
+focus_neighbor_bottom = NodePath("../VBoxContainer/VolumeSlider")
 theme_override_font_sizes/font_size = 45
 text = "Return"
 

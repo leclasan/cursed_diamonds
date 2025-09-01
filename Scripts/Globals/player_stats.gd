@@ -1,5 +1,7 @@
 extends Node
 
+var is_using_controller = false
+
 var lives = 3
 
 var color_list = ["beish", "blue", "green", "pink", "yellow"]
