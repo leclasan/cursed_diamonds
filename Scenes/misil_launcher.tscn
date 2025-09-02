@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cogxvx6uxy1ph"]
+
+[ext_resource type="Script" uid="uid://cx124t1is855a" path="res://Scripts/misil_launcher.gd" id="1_3y2ra"]
+[ext_resource type="Texture2D" uid="uid://bk6uthr7j6x2l" path="res://Assets/weapons/weapon_spritesheet.png" id="1_bkfme"]
+
+[node name="MisilLauncher" type="Node2D"]
+script = ExtResource("1_3y2ra")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(22, 0)
+texture = ExtResource("1_bkfme")
+region_enabled = true
+region_rect = Rect2(48, 64, 34, 16)

@@ -10,6 +10,7 @@ func _ready() -> void:
 		$Bono2.show()
 	if PlayerStats.points >= 3000:
 		$Bono3.show()
+	reset_focus()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,3 +29,6 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	get_tree().paused = false
 	queue_free()
+
+func reset_focus():
+	$Button.grab_focus()

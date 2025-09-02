@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c14piwd5ufx1y" path="res://Scripts/level.gd" id="1_41bnn"]
 [ext_resource type="PackedScene" uid="uid://b2w3jnmid18m8" path="res://Scenes/lose.tscn" id="2_8hdgw"]
 [ext_resource type="PackedScene" uid="uid://l11uek7a7fog" path="res://Scenes/tile_map.tscn" id="3_hiua2"]
-[ext_resource type="PackedScene" uid="uid://tyq73ghvoleb" path="res://Scenes/win.tscn" id="3_ltjva"]
+[ext_resource type="PackedScene" uid="uid://dksopqufb3w4s" path="res://Scenes/level_2.tscn" id="3_ltjva"]
 [ext_resource type="Texture2D" uid="uid://cwl4k40gmjwb8" path="res://Assets/world/tilemap_packed.png" id="4_ltjva"]
 [ext_resource type="PackedScene" uid="uid://cpuuefb3kul8h" path="res://Scenes/player.tscn" id="5_oudwc"]
 [ext_resource type="AudioStream" uid="uid://bcrxvbhkhp6h1" path="res://Assets/music/13 - Decisive Battle 1 - Don't Be Afraid.mp3" id="6_c5daq"]

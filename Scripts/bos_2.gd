@@ -96,7 +96,7 @@ func _process(delta: float) -> void:
 	
 	if life <= 0:
 		PlayerStats.points += 50
-		get_tree().change_scene_to_file("res://Scenes/win.tscn")
+		get_tree().change_scene_to_file("res://Scenes/level_2.tscn")
 
 func attack_1():
 	if attack_times < 3:

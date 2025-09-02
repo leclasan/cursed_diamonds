@@ -7,10 +7,10 @@ var lives = 3
 var color_list = ["beish", "blue", "green", "pink", "yellow"]
 var color = "green"
 
-var weapon_list = ["res://Scenes/pistol.tscn", "res://Scenes/3_pistol.tscn", "res://Scenes/minigun.tscn", "res://Scenes/banana_boomerang.tscn", "res://Scenes/mine.tscn" ]
+var weapon_list = ["res://Scenes/pistol.tscn", "res://Scenes/3_pistol.tscn", "res://Scenes/minigun.tscn", "res://Scenes/banana_boomerang.tscn", "res://Scenes/mine.tscn", "res://Scenes/misil_launcher.tscn"]
 var weapon 
 var weapon_cooldown = 0.333
-var weapon_file = "res://Scenes/pistol.tscn"
+var weapon_file = "res://Scenes/mine.tscn"
 var weapon_flip 
 var just_press = true
 

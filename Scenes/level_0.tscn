@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cbxwgqw3g722s" path="res://Scenes/pause_menu.tscn" id="6_oihvb"]
 [ext_resource type="PackedScene" uid="uid://dkl5nys3b5q0q" path="res://Scenes/life.tscn" id="8_ughle"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ibbt5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ughle"]
 texture = ExtResource("3_ughle")
 texture_region_size = Vector2i(18, 18)
 0:0/0 = 0
@@ -244,7 +244,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 4
 custom_data_layer_0/name = "stairs"
 custom_data_layer_0/type = 1
-sources/1 = SubResource("TileSetAtlasSource_ibbt5")
+sources/1 = SubResource("TileSetAtlasSource_ughle")
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_fxla4")
