@@ -1,7 +1,7 @@
-#Introduction
-This game has been done for the hackclub {shiba}(shiba.hackclub.com) event
+# Introduction
+This game has been done for the hackclub [shiba](shiba.hackclub.com) event
 
-#Resources
+# Resources
 I have used free assets from:
 - [kenney](https://kenney.nl/)
 - [explosion animation](https://bdragon1727.itch.io/free-effect-bullet-impact-explosion-32x32/download/eyJpZCI6MTk4Njc4OSwiZXhwaXJlcyI6MTc1NjQ4MTI1Nn0%3D.jgTORyOPkCdOuEsTdPkeA5XjiAM%3D)
